@@ -257,8 +257,10 @@ function parseMetadata($metadataFile, $defaultLanguage){
 		return Array(false, false);
 	}
 	
-	// Ignored IdPs
+	// Init variables
 	$hiddenIdPs = 0;
+	$metadataIDProviders = array();
+	$metadataSProviders = array();
 	
 	// Process individual EntityDescriptors
 	while( $CurrentXMLReaderNode->read() ) {
