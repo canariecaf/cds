@@ -87,9 +87,13 @@ if(isRunViaCLI()){
 		
 		// For now copy the array by reference
 		$SProviders = &$metadataSProviders;
-		
+	
+	// added by CAF to be quiet on processing unless in development mode
+	if ($developmentMode){	
 		echo "Printing parsed Service Providers:\n";
 		print_r($metadataSProviders);
+		} 
+		
 	}
 	
 	
