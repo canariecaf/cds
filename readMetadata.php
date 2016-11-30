@@ -75,11 +75,15 @@ if(isRunViaCLI()){
 		echo 'Merging parsed Identity Providers with data from file '.$IDPConfigFile."\n";
 		$IDProviders = mergeInfo($IDProviders, $metadataIDProviders, $SAML2MetaOverLocalConf, $includeLocalConfEntries);
 		
+		// added by CAF to be quiet on processing unless in development mode
+	if ($developmentMode){	
 		echo "Printing parsed Identity Providers:\n";
 		print_r($metadataIDProviders);
 		
 		echo "Printing effective Identity Providers:\n";
 		print_r($IDProviders);
+		}
+
 	}
 	
 	// If $metadataSProviders is not FALSE, update $SProviders and print the list.
@@ -93,7 +97,7 @@ if(isRunViaCLI()){
 		echo "Printing parsed Service Providers:\n";
 		print_r($metadataSProviders);
 		} 
-		
+
 	}
 	
 	
